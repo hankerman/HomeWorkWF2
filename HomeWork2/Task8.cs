@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HomeWork2
 {
     public partial class Task8 : Form
     {
+
         public Task8()
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace HomeWork2
             textBoxL.Text = "0";
             textBoxL.Enabled = radioButtonL.Checked;
             textBoxS.Enabled = false;
+            textBoxL.TextChanged += new EventHandler(UpdatePricePL);
         }
 
         private void radioButtonS_CheckedChanged(object sender, EventArgs e)
@@ -45,5 +48,12 @@ namespace HomeWork2
             textBoxS.Enabled = radioButtonS.Checked;
             textBoxL.Enabled = false;
         }
+
+        public void UpdatePricePL(Object sender, EventArgs args)
+        {
+            double res = Convert.ToDouble(textBoxL.Text) + Convert.ToDouble(textBoxPrice.Text);
+            labelPriseP.Text = res.ToString();
+        }
+        
     }
 }
