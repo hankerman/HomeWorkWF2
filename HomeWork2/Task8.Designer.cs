@@ -54,13 +54,13 @@
             this.labelPriseP = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxS = new System.Windows.Forms.TextBox();
-            this.textBoxL = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.comboBoxPetrol = new System.Windows.Forms.ComboBox();
             this.radioButtonS = new System.Windows.Forms.RadioButton();
             this.radioButtonL = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.numericUpDownL = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownS = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,6 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHot)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownS)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -105,6 +107,7 @@
             this.buttonPay.TabIndex = 1;
             this.buttonPay.Text = "Рассчет";
             this.buttonPay.UseVisualStyleBackColor = true;
+            this.buttonPay.Click += new System.EventHandler(this.buttonPay_Click);
             // 
             // labelPrise
             // 
@@ -257,6 +260,7 @@
             this.checkBoxCoffee.TabIndex = 3;
             this.checkBoxCoffee.Text = "Кофе";
             this.checkBoxCoffee.UseVisualStyleBackColor = true;
+            this.checkBoxCoffee.CheckedChanged += new System.EventHandler(this.checkBoxCoffee_CheckedChanged);
             // 
             // checkBoxFree
             // 
@@ -267,6 +271,7 @@
             this.checkBoxFree.TabIndex = 2;
             this.checkBoxFree.Text = "Картофель фри";
             this.checkBoxFree.UseVisualStyleBackColor = true;
+            this.checkBoxFree.CheckedChanged += new System.EventHandler(this.checkBoxFree_CheckedChanged);
             // 
             // checkBoxGamb
             // 
@@ -277,6 +282,7 @@
             this.checkBoxGamb.TabIndex = 1;
             this.checkBoxGamb.Text = "Гамбургер";
             this.checkBoxGamb.UseVisualStyleBackColor = true;
+            this.checkBoxGamb.CheckedChanged += new System.EventHandler(this.checkBoxGamb_CheckedChanged);
             // 
             // checkBoxHot
             // 
@@ -287,15 +293,16 @@
             this.checkBoxHot.TabIndex = 0;
             this.checkBoxHot.Text = "Хот-дог";
             this.checkBoxHot.UseVisualStyleBackColor = true;
+            this.checkBoxHot.CheckedChanged += new System.EventHandler(this.checkBoxHot_CheckedChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Silver;
+            this.groupBox1.Controls.Add(this.numericUpDownS);
+            this.groupBox1.Controls.Add(this.numericUpDownL);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBoxS);
-            this.groupBox1.Controls.Add(this.textBoxL);
             this.groupBox1.Controls.Add(this.textBoxPrice);
             this.groupBox1.Controls.Add(this.comboBoxPetrol);
             this.groupBox1.Controls.Add(this.radioButtonS);
@@ -347,22 +354,6 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Бензин";
             // 
-            // textBoxS
-            // 
-            this.textBoxS.Enabled = false;
-            this.textBoxS.Location = new System.Drawing.Point(131, 168);
-            this.textBoxS.Name = "textBoxS";
-            this.textBoxS.Size = new System.Drawing.Size(102, 20);
-            this.textBoxS.TabIndex = 5;
-            // 
-            // textBoxL
-            // 
-            this.textBoxL.Enabled = false;
-            this.textBoxL.Location = new System.Drawing.Point(131, 142);
-            this.textBoxL.Name = "textBoxL";
-            this.textBoxL.Size = new System.Drawing.Size(102, 20);
-            this.textBoxL.TabIndex = 4;
-            // 
             // textBoxPrice
             // 
             this.textBoxPrice.Enabled = false;
@@ -409,6 +400,22 @@
             this.radioButtonL.UseVisualStyleBackColor = true;
             this.radioButtonL.CheckedChanged += new System.EventHandler(this.radioButtonL_CheckedChanged);
             // 
+            // numericUpDownL
+            // 
+            this.numericUpDownL.Enabled = false;
+            this.numericUpDownL.Location = new System.Drawing.Point(115, 142);
+            this.numericUpDownL.Name = "numericUpDownL";
+            this.numericUpDownL.Size = new System.Drawing.Size(150, 20);
+            this.numericUpDownL.TabIndex = 18;
+            // 
+            // numericUpDownS
+            // 
+            this.numericUpDownS.Enabled = false;
+            this.numericUpDownS.Location = new System.Drawing.Point(117, 168);
+            this.numericUpDownS.Name = "numericUpDownS";
+            this.numericUpDownS.Size = new System.Drawing.Size(148, 20);
+            this.numericUpDownS.TabIndex = 19;
+            // 
             // Task8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,6 +440,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,10 +476,10 @@
         private System.Windows.Forms.Label labelPriseP;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxS;
-        private System.Windows.Forms.TextBox textBoxL;
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.ComboBox comboBoxPetrol;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.NumericUpDown numericUpDownS;
+        private System.Windows.Forms.NumericUpDown numericUpDownL;
     }
 }
