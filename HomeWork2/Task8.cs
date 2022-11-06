@@ -39,7 +39,7 @@ namespace HomeWork2
 
         private void radioButtonL_CheckedChanged(object sender, EventArgs e)
         {
-            
+            labelPriseP.Text = "0";
             numericUpDownL.Enabled = radioButtonL.Checked;
             numericUpDownS.Enabled = false;
             numericUpDownL.ValueChanged += new EventHandler(UpdatePricePL);
@@ -48,6 +48,7 @@ namespace HomeWork2
 
         private void radioButtonS_CheckedChanged(object sender, EventArgs e)
         {
+            labelPriseP.Text = "0";
             numericUpDownS.Enabled = radioButtonS.Checked;
             numericUpDownL.Enabled = false;
             numericUpDownS.ValueChanged += new EventHandler(UpdatePricePS);
@@ -55,12 +56,12 @@ namespace HomeWork2
 
         public void UpdatePricePL(Object sender, EventArgs args)
         {
-            double res = Convert.ToDouble(numericUpDownL) * Convert.ToDouble(textBoxPrice.Text);
+            double res = Convert.ToDouble(numericUpDownL.Value) * Convert.ToDouble(textBoxPrice.Text);
             labelPriseP.Text = res.ToString();
         }
         public void UpdatePricePS(Object sender, EventArgs args)
         {
-            double res = Convert.ToDouble(numericUpDownS);
+            double res = Convert.ToDouble(numericUpDownS.Value);
             labelPriseP.Text = res.ToString();
         }
         //кафе
